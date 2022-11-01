@@ -1,0 +1,5 @@
+local json = require('cjson')
+local tab = json.decode("{\"name\": \"kenh14.vn\", \"origins\": [{\"name\": \"origin1\", \"protocol\": \"http\", \"host\": \"kenh14.vn\", \"address\": \"192.168.1.1\"}]}")
+print(tab["name"])
+print(tab["origins"][1]["protocol"])
+print(tab)
