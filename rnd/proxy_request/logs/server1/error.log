@@ -1,0 +1,1 @@
+2023/04/17 17:12:04 [error] 25580#1218745: *37 kevent() reported that connect() failed (61: Connection refused) while connecting to upstream, client: 127.0.0.1, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://[::1]:8001/favicon.ico", host: "localhost:8000", referrer: "http://localhost:8000/"

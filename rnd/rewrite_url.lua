@@ -1,0 +1,1 @@
+ngx.var.x_request_uri = string.gsub(ngx.var.request_uri, "old%-url", "new%-url")

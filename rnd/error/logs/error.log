@@ -1,0 +1,18 @@
+2023/04/21 15:53:22 [error] 15448#3911557: *13 failed to load inlined Lua code: access_by_lua(nginx.conf:19):4: unexpected symbol near '..', client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8000"
+2023/04/21 15:53:24 [error] 15448#3911557: *14 failed to load inlined Lua code: access_by_lua(nginx.conf:19):4: unexpected symbol near '..', client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8000"
+2023/04/21 15:53:24 [error] 15448#3911557: *15 failed to load inlined Lua code: access_by_lua(nginx.conf:19):4: unexpected symbol near '..', client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8000"
+2023/04/21 15:53:25 [error] 15448#3911557: *16 failed to load inlined Lua code: access_by_lua(nginx.conf:19):4: unexpected symbol near '..', client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8000"
+2023/04/21 15:53:25 [error] 15448#3911557: *17 failed to load inlined Lua code: access_by_lua(nginx.conf:19):4: unexpected symbol near '..', client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8000"
+2023/04/21 15:53:26 [error] 15448#3911557: *18 failed to load inlined Lua code: access_by_lua(nginx.conf:19):4: unexpected symbol near '..', client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8000"
+2023/04/21 15:53:59 [error] 15600#3912309: *19 lua entry thread aborted: runtime error: access_by_lua(nginx.conf:19):4: bad argument #1 to 'log' (bad log level: -1)
+stack traceback:
+coroutine 0:
+	[C]: in function 'log'
+	access_by_lua(nginx.conf:19):4: in main chunk, client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8000"
+2023/04/21 15:53:59 [error] 15600#3912309: *20 lua entry thread aborted: runtime error: access_by_lua(nginx.conf:19):4: bad argument #1 to 'log' (bad log level: -1)
+stack traceback:
+coroutine 0:
+	[C]: in function 'log'
+	access_by_lua(nginx.conf:19):4: in main chunk, client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8000"
+2023/04/21 15:55:05 [error] 15704#3912784: *21 kevent() reported that connect() failed (61: Connection refused) while connecting to upstream, client: 127.0.0.1, server: , request: "GET /something.png HTTP/1.1", upstream: "http://[::1]:8001/something.png", host: "localhost:8000"
+2023/04/21 15:59:41 [error] 16794#3917785: *18 kevent() reported that connect() failed (61: Connection refused) while connecting to upstream, client: 127.0.0.1, server: , request: "GET /something.png HTTP/1.0", upstream: "http://[::1]:8001/something.png", host: "localhost:8000"

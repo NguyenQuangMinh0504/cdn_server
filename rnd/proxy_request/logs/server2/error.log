@@ -1,0 +1,1 @@
+2023/04/17 17:12:04 [error] 25580#1218745: *39 kevent() reported that connect() failed (61: Connection refused) while connecting to upstream, client: 127.0.0.1, server: , request: "GET / HTTP/1.0", upstream: "http://[::1]:8002/", host: "localhost:8001"
