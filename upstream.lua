@@ -8,6 +8,7 @@ red:connect("127.0.0.1", 6380)
 red:select(1)
 ngx.log(ngx.ERR, "Host is " .. host)
 local res, err = red:get(host)
+ngx.log(ngx.ERR, "Res is " .. res)
 local config = json.decode(res)
 ngx.var.x_upstream_addr = config["ip"]
 ngx.var.x_host = config["host"]
