@@ -4,7 +4,7 @@ local red = redis:new()
 
 host = ngx.var.host
 
-red:connect("127.0.0.1", 6379)
+red:connect("127.0.0.1", 6380)
 red:select(1)
 ngx.log(ngx.ERR, "Host is " .. host)
 local res, err = red:get(host)
