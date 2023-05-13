@@ -27,3 +27,12 @@
 2023/05/02 15:30:15 [error] 4801#1640108: *1 [lua] upstream.lua:19: Got header if-range: "644b9749-a0edbc";, client: 127.0.0.1, server: , request: "GET /sample-mp4-file.mp4 HTTP/1.1", host: "saugau.com", referrer: "http://saugau.com/"
 2023/05/02 15:30:15 [error] 4801#1640108: *1 [lua] upstream.lua:19: Got header connection: keep-alive;, client: 127.0.0.1, server: , request: "GET /sample-mp4-file.mp4 HTTP/1.1", host: "saugau.com", referrer: "http://saugau.com/"
 2023/05/02 15:30:15 [error] 4801#1640108: *1 [lua] upstream.lua:21: 104.154.99.60:80, client: 127.0.0.1, server: , request: "GET /sample-mp4-file.mp4 HTTP/1.1", host: "saugau.com", referrer: "http://saugau.com/"
+2023/05/10 09:20:42 [error] 10224#58640: *1 kevent() reported that connect() failed (61: Connection refused) while connecting to upstream, client: 127.0.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://[::1]:8082/", host: "localhost:8000"
+2023/05/10 09:20:42 [warn] 10224#58640: *1 upstream server temporarily disabled while connecting to upstream, client: 127.0.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://[::1]:8082/", host: "localhost:8000"
+2023/05/10 09:21:08 [notice] 10224#58640: *1 "^/something/newurl/(.*)$" does not match "/something.png", client: 127.0.0.1, server: , request: "GET /something.png?foo HTTP/1.1", host: "localhost:8000"
+2023/05/10 09:21:08 [error] 10224#58640: *1 lua entry thread aborted: runtime error: ...Desktop/PROJECT/solo-projects/cdn_server/rewrite_url.lua:1: variable "x_upstream_request_uri" not found for writing; maybe it is a built-in variable that is not changeable or you forgot to use "set $x_upstream_request_uri '';" in the config file to define it first
+stack traceback:
+coroutine 0:
+	[C]: in function 'error'
+	...ew/Cellar/openresty/1.21.4.1_1/lualib/resty/core/var.lua:144: in function '__newindex'
+	...Desktop/PROJECT/solo-projects/cdn_server/rewrite_url.lua:1: in main chunk, client: 127.0.0.1, server: , request: "GET /something.png?foo HTTP/1.1", host: "localhost:8000"

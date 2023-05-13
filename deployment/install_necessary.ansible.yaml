@@ -1,0 +1,25 @@
+---
+- hosts: cdn-server-3
+  become: yes
+  tasks:
+    - name: Install redis server
+      ansible.builtin.apt:
+        name:
+          - redis-server
+    - name: Install git
+      ansible.builtin.apt:
+        name:
+          - git
+
+    - name: Add openresty GPG key
+      ansible.builtin.apt_key:
+        url: https://openresty.org/package/pubkey.gpg
+    - name: Add openresty repository
+      ansible.builtin.apt_repository:
+        repo: deb http://openresty.org/package/debian bullseye openresty
+    - name: Install openresty
+      ansible.builtin.apt:
+        name:
+          - openresty
+          
+      

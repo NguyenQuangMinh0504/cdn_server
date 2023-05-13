@@ -1,0 +1,9 @@
+---
+- hosts: cdn-server-3
+  name: Synchronize code
+  become: yes
+  tasks:
+  - name: Synchronize config
+    ansible.builtin.copy:
+      src: ../deployment/
+      dest: /home/nguyenquangminh/

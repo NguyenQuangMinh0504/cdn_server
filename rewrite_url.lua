@@ -1,1 +1,0 @@
-ngx.var.x_upstream_request_uri = string.gsub(ngx.var.request_uri, "oldurl", "newurl")

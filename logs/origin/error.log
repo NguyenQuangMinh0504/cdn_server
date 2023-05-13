@@ -1,0 +1,2 @@
+2023/05/10 09:20:42 [error] 10224#58640: *5 "/Users/nguyenquangminh/Desktop/PROJECT/solo-projects/cdn_server/html/index.html" is not found (2: No such file or directory), client: 127.0.0.1, server: , request: "GET / HTTP/1.0", host: "localhost:8082"
+2023/05/10 09:20:42 [error] 10224#58640: *7 open() "/Users/nguyenquangminh/Desktop/PROJECT/solo-projects/cdn_server/html/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: , request: "GET /favicon.ico HTTP/1.0", host: "localhost:8082", referrer: "http://localhost:8000/"

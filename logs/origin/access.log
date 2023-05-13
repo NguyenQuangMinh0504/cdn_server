@@ -275,3 +275,5 @@
 127.0.0.1 - - [14/Apr/2023:09:44:33 +0700] "GET /something/newurl/something.png HTTP/1.0" 200 15 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
 127.0.0.1 - - [14/Apr/2023:09:44:33 +0700] "GET /something/newurl/something.png HTTP/1.0" 200 15 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
 127.0.0.1 - - [14/Apr/2023:09:44:33 +0700] "GET /something/newurl/something.png HTTP/1.0" 200 15 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+127.0.0.1 - - [10/May/2023:09:20:42 +0700] "GET / HTTP/1.0" 404 561 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+127.0.0.1 - - [10/May/2023:09:20:42 +0700] "GET /favicon.ico HTTP/1.0" 404 561 "http://localhost:8000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
