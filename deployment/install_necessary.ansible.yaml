@@ -1,5 +1,5 @@
 ---
-- hosts: cache-server-1
+- hosts: cache-server
   become: yes
   tasks:
     - name: Install redis server

@@ -1,0 +1,14 @@
+---
+- hosts: cache-server
+  name: Running process
+  become: yes
+  tasks:
+    - name: Run redis server replication
+      ansible.builtin.command:
+        chdir: /home/nguyenquangminh/cache_server
+        cmd: redis-server redis.conf
+    - name: Run openresty cache server
+      ansible.builtin.command:
+        chdir: /home/nguyenquangminh/cache_server
+        cmd: openresty -p `pwd` -c cache-server.conf
+

@@ -1,5 +1,5 @@
 ---
-- hosts: cache-server-1
+- hosts: cache-server
   name: Synchronize code
   become: yes
   tasks:
