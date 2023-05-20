@@ -1,5 +1,5 @@
 ---
-- hosts: cdn-server-3
+- hosts: cache-server-2
   become: yes
   tasks:
     - name: Install redis server
@@ -10,6 +10,10 @@
       ansible.builtin.apt:
         name:
           - git
+    - name: Install rsync package
+      ansible.builtin.apt:
+        name:
+          - rsync
 
     - name: Add openresty GPG key
       ansible.builtin.apt_key:

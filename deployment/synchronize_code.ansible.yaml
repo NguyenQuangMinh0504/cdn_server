@@ -1,9 +1,9 @@
 ---
-- hosts: cdn-server-3
+- hosts: cache-server-2
   name: Synchronize code
   become: yes
   tasks:
   - name: Synchronize config
-    ansible.builtin.copy:
-      src: ../deployment/
-      dest: /home/nguyenquangminh/
+    ansible.posix.synchronize:
+      src: /Users/nguyenquangminh/Desktop/PROJECT/solo-projects/cdn_server/
+      dest: /home/nguyenquangminh/cdn_server/
