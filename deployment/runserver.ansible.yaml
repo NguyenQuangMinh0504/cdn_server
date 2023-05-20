@@ -10,5 +10,5 @@
     - name: Run openresty cache server
       ansible.builtin.command:
         chdir: /home/nguyenquangminh/cache_server
-        cmd: openresty -p `pwd` -c cache-server.conf
+        cmd: openresty -p `pwd` -c cache_server.conf
 
