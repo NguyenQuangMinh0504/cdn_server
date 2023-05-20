@@ -1,2 +1,0 @@
-2023/04/21 15:59:03 [error] 16794#3917785: *2 kevent() reported that connect() failed (61: Connection refused) while connecting to upstream, client: 127.0.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://[::1]:8000/", host: "localhost:8002"
-2023/04/21 15:59:41 [error] 16794#3917785: *2 kevent() reported that connect() failed (61: Connection refused) while connecting to upstream, client: 127.0.0.1, server: , request: "GET /something.png HTTP/1.1", upstream: "http://[::1]:8000/something.png", host: "localhost:8002"
