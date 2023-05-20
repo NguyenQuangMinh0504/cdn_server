@@ -1,9 +1,12 @@
 ---
-- hosts: cache-server-2
+- hosts: cache-server-1
   name: Synchronize code
   become: yes
   tasks:
-  - name: Synchronize config
-    ansible.posix.synchronize:
-      src: /Users/nguyenquangminh/Desktop/PROJECT/solo-projects/cdn_server/
-      dest: /home/nguyenquangminh/cdn_server/
+  - name: Clone git
+    ansible.builtin.git:
+      repo: https://NguyenQuangMinh0504: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@github.com/NguyenQuangMinh0504/cdn_server.git
+      dest: /home/nguyenquangminh/cache_server
+      update: yes
+      clone: yes
+      force: yes
