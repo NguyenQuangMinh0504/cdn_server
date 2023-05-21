@@ -20,4 +20,3 @@
       ansible.builtin.command:
         chdir: /home/nguyenquangminh/cache_server
         cmd: openresty -c cache_server.conf -p /home/nguyenquangminh/cache_server
-
