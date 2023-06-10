@@ -4,6 +4,7 @@ local red = redis:new()
 
 host = ngx.var.host
 request_uri = ngx.var.request_uri
+uri = ngx.var.uri
 
 red:connect("127.0.0.1", 6380)
 red:select(0)
@@ -12,6 +13,8 @@ ngx.var.x_upstream_addr = res
 ngx.var.x_host = res
 red_select(1)
 local res, err = red:get(host)
-if res == 1 then:
+if res == 1 then
     ngx.var.x_cache_key = host .. request_uri
-
+elseif res == 0 then:
+    ngx.var.x_cache_key = host .. uri
+end
