@@ -18,3 +18,4 @@ if res == 1 then
 elseif res == 0 then
     ngx.var.x_cache_key = host .. uri
 end
+ngx.log(ngx.ERR, "Cache key is: " .. tostring(ngx.var.x_cache_key))
