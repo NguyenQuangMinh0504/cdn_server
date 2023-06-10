@@ -11,7 +11,7 @@ red:select(0)
 local res, err = red:get(host)
 ngx.var.x_upstream_addr = res
 ngx.var.x_host = res
-red_select(1)
+red:select(1)
 local res, err = red:get(host)
 if res == 1 then
     ngx.var.x_cache_key = host .. request_uri
