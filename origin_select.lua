@@ -18,5 +18,6 @@ if res == 1 then
 elseif res == 0 then
     ngx.var.x_cache_key = host .. uri
 end
-ngx.log(ngx.ERR, "Result is: " .. tostring(res))
+
 ngx.log(ngx.ERR, "Cache key is: " .. tostring(ngx.var.x_cache_key))
+ngx.log(ngx.ERR, "Is desktop status is: " .. tostring(ngx.var.is_desktop))
