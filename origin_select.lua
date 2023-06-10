@@ -15,6 +15,6 @@ red_select(1)
 local res, err = red:get(host)
 if res == 1 then
     ngx.var.x_cache_key = host .. request_uri
-elseif res == 0 then:
+elseif res == 0 then
     ngx.var.x_cache_key = host .. uri
 end
