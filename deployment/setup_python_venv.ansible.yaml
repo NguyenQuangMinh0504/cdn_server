@@ -1,0 +1,13 @@
+---
+- hosts: cache-server
+  become: True
+  tasks: 
+    - name: Create the virtual environment 
+      ansible.builtin.pip:
+        requirements: /home/nguyenquangminh/cache_server/requirements.txt
+        virtualenv: /home/nguyenquangminh/venv
+        virtualenv_python: python3.9
+    - name: Running python script
+      ansible.builtin.command:
+        chdir: /home/nguyenquangminh/cache_server
+        cmd: /home/nguyenquangminh/venv/bin/python parse_log.py

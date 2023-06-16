@@ -13,8 +13,9 @@ if __name__ == "__main__":
         with open("./access.log", "r") as f:
             f.seek(initial_position)
             for i in f:
-                print(int(re.findall(log_format, i)[0][7]))
-                print(re.findall(log_format, i)[0][8])
+                print(i)
+                # print(int(re.findall(log_format, i)[0][7]))
+                # print(re.findall(log_format, i)[0][8])
                 bytes_sent_counter.labels(referer=re.findall(log_format, i)[0][8]).inc(amount=int(re.findall(log_format, i)[0][7]))
             initial_position = f.tell()
             time.sleep(5)

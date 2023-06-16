@@ -20,6 +20,16 @@
         name:
           - lsof
 
+    - name: Install python3 pip
+      ansible.builtin.apt:
+        name:
+          - python3-pip
+
+    - name: Install python3 virtual env
+      ansible.builtin.apt:
+        name:
+          - python3-virtualenv
+
     - name: Add openresty GPG key
       ansible.builtin.apt_key:
         url: https://openresty.org/package/pubkey.gpg
