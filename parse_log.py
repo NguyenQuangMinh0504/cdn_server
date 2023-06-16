@@ -14,10 +14,10 @@ if __name__ == "__main__":
             f.seek(initial_position)
             for i in f:
                 print(i)
-                print(re.findall(log_format, i))
-                # print("Len of parse format is", len(re.findall(log_format, i)[0]))
-                # print(int(re.findall(log_format, i)[0][7]))
-                # print(re.findall(log_format, i)[0][8])
-                # bytes_sent_counter.labels(referer=re.findall(log_format, i)[0][8]).inc(amount=int(re.findall(log_format, i)[0][7]))
+                result = re.findall(log_format, i)
+                if len(result) != 0:
+                    print(int(re.findall(log_format, i)[0][7]))
+                    print(re.findall(log_format, i)[0][8])
+                    bytes_sent_counter.labels(referer=re.findall(log_format, i)[0][8]).inc(amount=int(re.findall(log_format, i)[0][7]))
             initial_position = f.tell()
             time.sleep(5)
