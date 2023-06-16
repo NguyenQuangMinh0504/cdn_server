@@ -2,11 +2,13 @@ local redis = require "resty.redis"
 local json = require "cjson"
 local red = redis:new()
 
+
+local host = ngx.var.host
+local request_uri = ngx.var.request_uri
+local uri = ngx.var.uri
+local is_desktop = ngx.var.is_desktop
+
 local cache_key = host .. request_uri
-host = ngx.var.host
-request_uri = ngx.var.request_uri
-uri = ngx.var.uri
-is_desktop = ngx.var.is_desktop
 
 -- red:connect("127.0.0.1", 6380)
 -- red:select(0)
