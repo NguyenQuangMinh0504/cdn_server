@@ -1,9 +1,12 @@
 import re
 from prometheus_client import start_http_server, Counter
 import time
-log_format = r'(?P<remote_addr>\S+) - (?P<remote_user>\S+) \[(?P<timestamp>.*?)\] "(?P<request_method>\S+?) (?P<url>\S+?) HTTP/(?P<http_version>.*?)" (?P<status_code>\d+) (?P<response_size>\d+) "(?P<referrer>.*?)" "(?P<user_agent>.*?)"'
 
-bytes_sent_counter = Counter(name="total_bytes_sent", documentation="NGINX total bytes sent", labelnames=["referer"])
+log_format = r'(?P<remote_addr>\S+) \[(?P<time_iso8601>.*?)\] (?P<http_host>.*) "(?P<request>.*)" (?P<status>\d+) (?P<body_bytes_sent>\d+) (?P<http_referer>.*) "(?P<http_user_agent>.*)"'
+
+bytes_sent_counter = Counter(name="total_bytes_sent",
+                             documentation="NGINX total bytes sent",
+                             labelnames=["referer"])
 
 if __name__ == "__main__":
     start_http_server(8193)
@@ -13,11 +16,13 @@ if __name__ == "__main__":
         with open("./access.log", "r") as f:
             f.seek(initial_position)
             for i in f:
-                print(i)
-                result = re.findall(log_format, i)
-                if len(result) != 0:
-                    print(int(re.findall(log_format, i)[0][7]))
-                    print(re.findall(log_format, i)[0][8])
-                    bytes_sent_counter.labels(referer=re.findall(log_format, i)[0][8]).inc(amount=int(re.findall(log_format, i)[0][7]))
+                match = re.match(log_format, i)
+                if match:
+                    print(match.group("request"))
+                    print(match.group("body_bytes_sent"))
+                    print(match.group("http_host"))
+                    bytes_sent_counter.labels(
+                        referer=match.group("http_host")
+                        ).inc(amount=int(match.group("body_bytes_sent")))
             initial_position = f.tell()
             time.sleep(5)

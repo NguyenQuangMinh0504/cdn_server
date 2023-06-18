@@ -2,19 +2,19 @@ local redis = require "resty.redis"
 local json = require "cjson"
 local red = redis:new()
 
-
-local host = ngx.var.host
+local host = ngx.var.http_host
 local request_uri = ngx.var.request_uri
 local uri = ngx.var.uri
 local is_desktop = ngx.var.is_desktop
 
 local cache_key = host .. request_uri
 
--- red:connect("127.0.0.1", 6380)
--- red:select(0)
--- local res, err = red:get(host)
--- ngx.var.x_upstream_addr = res
--- ngx.var.x_host = res
+red:connect("127.0.0.1", 6379)
+red:select(0)
+local res, err = red:get(host)
+ngx.var.x_upstream_addr = res
+ngx.var.x_host = res
+
 -- red:select(1)
 -- local res, err = tonumber(red:get(host))
 -- if res == 0 then
