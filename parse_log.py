@@ -13,7 +13,7 @@ if __name__ == "__main__":
     with open("./access.log", 'r') as f:
         initial_position = f.tell()
     while True:
-        with open("./access.log", "r") as f:
+        with open("/home/nguyenquangminh/cache_server/access.log", "r") as f:
             f.seek(initial_position)
             for i in f:
                 match = re.match(log_format, i)
