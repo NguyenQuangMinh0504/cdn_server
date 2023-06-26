@@ -1,6 +1,12 @@
 import re
+import os
 from prometheus_client import start_http_server, Counter
 import time
+
+# Change directory to where contain code
+abspath = os.path.abspath(__file__)
+dname = os.path.dirname(abspath)
+os.chdir(dname)
 
 log_format = r'(?P<remote_addr>\S+) \[(?P<time_iso8601>.*?)\] (?P<http_host>.*) "(?P<request>.*)" (?P<status>\d+) (?P<body_bytes_sent>\d+) (?P<http_referer>.*) "(?P<http_user_agent>.*)"'
 
@@ -13,7 +19,7 @@ if __name__ == "__main__":
     with open("./access.log", 'r') as f:
         initial_position = f.tell()
     while True:
-        with open("/home/nguyenquangminh/cache_server/access.log", "r") as f:
+        with open("./access.log", "r") as f:
             f.seek(initial_position)
             for i in f:
                 match = re.match(log_format, i)
