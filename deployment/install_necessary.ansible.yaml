@@ -29,6 +29,11 @@
       ansible.builtin.apt:
         name:
           - python3-virtualenv
+    
+    - name: Install supervisor for manage processeses
+      ansible.builtin.apt:
+        name:
+          - supervisor
 
     - name: Add openresty GPG key
       ansible.builtin.apt_key:
@@ -41,4 +46,3 @@
         name:
           - openresty
           
-      

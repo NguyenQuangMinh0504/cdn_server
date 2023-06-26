@@ -7,7 +7,21 @@
         requirements: /home/nguyenquangminh/cache_server/requirements.txt
         virtualenv: /home/nguyenquangminh/venv
         virtualenv_python: python3.9
-    - name: Running python script
+
+    - name: Copy log_export supervisor config file from local to remote.
+      ansible.builtin.copy:
+        src: /home/nguyenquangminh/cache_server/log_exporter.conf
+        dest: /etc/supervisor/conf.d/log_exporter.conf
+        remote_src: true
+    
+    - name: Reload supervisor config
       ansible.builtin.command:
-        chdir: /home/nguyenquangminh/cache_server
-        cmd: /home/nguyenquangminh/venv/bin/python parse_log.py
+        cmd: supervisorctl reread
+
+    - name: Run python log exporter using supervisor
+      ansible.builtin.command:
+        cmd: supervisorctl start all
+    
+    - name: Reload supervisorctl
+      ansible.builtin.command:
+        cmd: supervisorctl reload
