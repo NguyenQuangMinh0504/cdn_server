@@ -12,7 +12,7 @@ log_format = r'(?P<remote_addr>\S+) \[(?P<time_iso8601>.*?)\] (?P<http_host>.*) 
 
 bytes_sent_counter = Counter(name="total_bytes_sent",
                              documentation="NGINX total bytes sent",
-                             labelnames=["referer"])
+                             labelnames=["http_host"])
 
 if __name__ == "__main__":
     start_http_server(8193)
@@ -28,7 +28,7 @@ if __name__ == "__main__":
                     print(match.group("body_bytes_sent"))
                     print(match.group("http_host"))
                     bytes_sent_counter.labels(
-                        referer=match.group("http_host")
+                        http_host=match.group("http_host")
                         ).inc(amount=int(match.group("body_bytes_sent")))
             initial_position = f.tell()
             time.sleep(5)
