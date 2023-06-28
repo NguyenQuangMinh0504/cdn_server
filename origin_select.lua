@@ -15,17 +15,17 @@ local res, err = red:get(host)
 ngx.var.x_upstream_addr = res
 ngx.var.x_host = res
 
--- red:select(1)
--- local res, err = tonumber(red:get(host))
--- if res == 0 then
---     cache_key = host .. uri
--- elseif res == 1 then
---     cache_key = host .. request_uri
--- elseif res == 2 then
---     cache_key = is_desktop .. host .. uri
--- elseif res == 3 then
---     cache_key = is_desktop .. host .. request_uri
--- end
+red:select(1)
+local res, err = tonumber(red:get(host))
+if res == 0 then
+    cache_key = host .. uri
+elseif res == 1 then
+    cache_key = host .. request_uri
+elseif res == 2 then
+    cache_key = is_desktop .. host .. uri
+elseif res == 3 then
+    cache_key = is_desktop .. host .. request_uri
+end
 
 -- red:select(2)
 -- local cookie_cache_keys = json.decode(red:get(host))
@@ -42,3 +42,5 @@ ngx.var.x_host = res
 --         end
 --     end
 -- end
+
+ngx.var.x_cache_key = cache_key
