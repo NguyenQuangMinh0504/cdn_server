@@ -4,13 +4,13 @@
   tasks: 
     - name: Create the virtual environment 
       ansible.builtin.pip:
-        requirements: /home/nguyenquangminh/cache_server/requirements.txt
-        virtualenv: /home/nguyenquangminh/venv
+        requirements: /opt/cache_server/requirements.txt
+        virtualenv: /opt/cache_server/venv
         virtualenv_python: python3.9
 
     - name: Copy log_export supervisor config file from local to remote.
       ansible.builtin.copy:
-        src: /home/nguyenquangminh/cache_server/log_exporter.conf
+        src: /opt/cache_server/log_exporter.conf
         dest: /etc/supervisor/conf.d/log_exporter.conf
         remote_src: true
     
