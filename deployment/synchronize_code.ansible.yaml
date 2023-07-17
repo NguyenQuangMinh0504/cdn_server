@@ -5,7 +5,7 @@
   tasks:
   - name: Clone git
     ansible.builtin.git:
-      repo: https://NguyenQuangMinh0504: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@github.com/NguyenQuangMinh0504/cdn_server.git
+      repo: https://github.com/NguyenQuangMinh0504/cdn_server
       dest: /opt/cache_server
       update: yes
       clone: yes
