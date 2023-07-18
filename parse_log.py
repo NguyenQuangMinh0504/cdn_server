@@ -9,7 +9,9 @@ abspath = os.path.abspath(__file__)
 dname = os.path.dirname(abspath)
 os.chdir(dname)
 
-redis_total_bytes_sent = Redis(host="34.125.63.254", port="6380", db=2)
+redis_dashboard = "34.125.63.254"
+
+redis_total_bytes_sent = Redis(host=redis_dashboard, port="6380", db=2)
 
 log_format = r'(?P<remote_addr>\S+) \[(?P<time_iso8601>.*?)\] (?P<http_host>.*) "(?P<request>.*)" (?P<status>\d+) (?P<body_bytes_sent>\d+) (?P<http_referer>.*) "(?P<http_user_agent>.*)"'
 
@@ -29,8 +31,10 @@ if __name__ == "__main__":
                 if match:
                     http_host = match.group("http_host")
                     body_bytes_sent = int(match.group("body_bytes_sent"))
+                    # Increment data transfer
                     redis_total_bytes_sent.incrby(name=http_host,
                                                   amount=body_bytes_sent)
+                    # Increment prometheus counter
                     bytes_sent_counter.labels(
                         http_host=http_host
                         ).inc(amount=body_bytes_sent)
