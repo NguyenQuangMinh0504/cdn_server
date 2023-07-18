@@ -3,22 +3,17 @@ import os
 from prometheus_client import start_http_server, Counter
 from redis import Redis
 import time
-
 # Change directory to where contain code
 abspath = os.path.abspath(__file__)
 dname = os.path.dirname(abspath)
 os.chdir(dname)
-
 redis_dashboard = "34.125.63.254"
-
+# Connect to dashboard database.
 redis_total_bytes_sent = Redis(host=redis_dashboard, port="6380", db=2)
-
 log_format = r'(?P<remote_addr>\S+) \[(?P<time_iso8601>.*?)\] (?P<http_host>.*) "(?P<request>.*)" (?P<status>\d+) (?P<body_bytes_sent>\d+) (?P<http_referer>.*) "(?P<http_user_agent>.*)"'
-
 bytes_sent_counter = Counter(name="total_bytes_sent",
                              documentation="NGINX total bytes sent",
                              labelnames=["http_host"])
-
 if __name__ == "__main__":
     start_http_server(8193)
     with open("./access.log", 'r') as f:
