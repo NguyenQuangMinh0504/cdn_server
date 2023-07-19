@@ -10,6 +10,7 @@
     - name: Stop all processes running on port 80
       ansible.builtin.shell: "kill -9 {{ item }}"
       with_items: "{{ processes_on_port.stdout_lines }}"
+      ignore_errors: yes
       
     - name: Run redis server replication
       ansible.builtin.command:
