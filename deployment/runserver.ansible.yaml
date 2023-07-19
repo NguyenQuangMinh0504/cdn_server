@@ -13,11 +13,11 @@
       
     - name: Run redis server replication
       ansible.builtin.command:
-        chdir: /home/nguyenquangminh/cache_server
+        chdir: /opt/cache_server
         cmd: redis-server redis.conf
 
     - name: Run openresty cache server
       ansible.builtin.command:
-        chdir: /home/nguyenquangminh/cache_server
-        cmd: openresty -c cache_server.conf -p /home/nguyenquangminh/cache_server -s reload
+        chdir: /opt/cache_server
+        cmd: openresty -c cache_server.conf -p /opt/cache_server
 
