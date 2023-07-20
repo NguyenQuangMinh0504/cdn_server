@@ -7,7 +7,7 @@ import time
 abspath = os.path.abspath(__file__)
 dname = os.path.dirname(abspath)
 os.chdir(dname)
-redis_dashboard = "34.125.63.254"
+redis_dashboard = "35.184.46.172"
 # Connect to dashboard database.
 redis_total_bytes_sent = Redis(host=redis_dashboard, port="6380", db=2)
 log_format = r'(?P<remote_addr>\S+) \[(?P<time_iso8601>.*?)\] (?P<http_host>.*) "(?P<request>.*)" (?P<status>\d+) (?P<body_bytes_sent>\d+) (?P<http_referer>.*) "(?P<http_user_agent>.*)"'
