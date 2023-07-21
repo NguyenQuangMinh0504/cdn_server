@@ -19,6 +19,7 @@ channel.queue_bind(exchange="cache_delete", queue=queue_name)
 
 def callback(ch, method, properties, body):
     result = hashlib.md5(body).hexdigest()
+    print(body)
     print(result)
 
 
