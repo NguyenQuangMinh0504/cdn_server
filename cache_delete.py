@@ -19,7 +19,11 @@ channel.queue_bind(exchange="cache_delete", queue=queue_name)
 
 def callback(ch, method, properties, body):
     result = hashlib.md5(body).hexdigest()
-    print(body)
+    file_path = "/opt/cache_server/cache/{}/{}/{}".format(
+        result[-1], result[-3:-1], result
+        )
+    os.remove(file_path)
+    print(file_path)
     print(result)
 
 
