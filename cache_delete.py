@@ -1,4 +1,6 @@
 import pika
+import os
+import hashlib
 
 connection = pika.BlockingConnection(
     pika.ConnectionParameters(
@@ -16,7 +18,8 @@ channel.queue_bind(exchange="cache_delete", queue=queue_name)
 
 
 def callback(ch, method, properties, body):
-    print(body)
+    result = hashlib.md5(body).hexdigest()
+    print(result)
 
 
 channel.basic_consume(queue=queue_name,
