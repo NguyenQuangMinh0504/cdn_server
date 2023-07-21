@@ -18,7 +18,7 @@
       ansible.builtin.command:
         cmd: supervisorctl reread
 
-    - name: Run python log exporter using supervisor
+    - name: Run python cache delete using supervisor
       ansible.builtin.command:
         cmd: supervisorctl start all
     
