@@ -44,3 +44,4 @@ end
 -- end
 
 ngx.var.x_cache_key = cache_key
+ngx.log(ngx.ERR, ngx.var.x_cache_key)
