@@ -8,10 +8,10 @@
         virtualenv: /opt/cache_server/venv
         virtualenv_python: python3.9
 
-    - name: Copy log_export supervisor config file from local to remote.
+    - name: Copy cache delete supervisor config file from local to remote.
       ansible.builtin.copy:
-        src: /opt/cache_server/cdn_exporter.conf
-        dest: /etc/supervisor/conf.d/cdn_exporter.conf
+        src: /opt/cache_server/cache_delete.conf
+        dest: /etc/supervisor/conf.d/cache_delete.conf
         remote_src: true
     
     - name: Reread supervisor config
