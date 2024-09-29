@@ -1,0 +1,6 @@
+---
+- hosts: all
+  become: yes
+- ansible.builtin.import_playbook: ../install_necessary.ansible.yaml
+- ansible.builtin.import_playbook: ../synchronize_code.ansible.yaml
+- ansible.builtin.import_playbook: ../runserver.ansible.yaml
