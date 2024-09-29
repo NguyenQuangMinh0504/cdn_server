@@ -5,7 +5,7 @@ provider "google" {
 }
 
 resource "google_compute_instance" "default" {
-    name = "test"
+    name = "cache-server-tokyo"
     machine_type = "e2-small"
     zone = "asia-northeast1-c"
     boot_disk {
