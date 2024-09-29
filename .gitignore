@@ -2,3 +2,4 @@
 .vscode
 openresty.pid
 venv/
+deployment/terraform
