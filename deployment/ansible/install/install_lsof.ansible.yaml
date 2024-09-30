@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Install lsof package 
+      ansible.builtin.apt:
+        name:
+          - lsof

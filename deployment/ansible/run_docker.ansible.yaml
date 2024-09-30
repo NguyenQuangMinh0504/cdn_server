@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: no
+  name: Running docker images
+  tasks: 
+    - name: Building docker image
+      ansible.builtin.command:
+        chdir: /opt/cache_server/
+        cmd: docker compose build
+    - name: Run Docker containers using Docker compose command
+      ansible.builtin.command:
+        chdir: /opt/cache_server/
+        cmd: docker compose up -d
