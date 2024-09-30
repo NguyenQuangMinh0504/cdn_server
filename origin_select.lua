@@ -9,7 +9,7 @@ local is_desktop = ngx.var.is_desktop
 
 local cache_key = host .. request_uri
 
-red:connect("127.0.0.1", 6380)
+red:connect("127.0.0.1", 6379)
 red:select(0)
 local res, err = red:get(host)
 ngx.var.x_upstream_addr = res
