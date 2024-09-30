@@ -1,0 +1,16 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: no
+  name: Install Docker
+  tasks:
+    - name: Add Docker GPG key
+      ansible.builtin.apt_key:
+        url: https://download.docker.com/linux/debian/gpg
+    - name: Add Docker repository to apt
+      ansible.builtin.apt_repository:
+        repo: deb https://download.docker.com/linux/debian bookworm stable
+    - name: Install Docker engine community edition
+      ansible.builtin.apt:
+        name:
+          - docker-ce

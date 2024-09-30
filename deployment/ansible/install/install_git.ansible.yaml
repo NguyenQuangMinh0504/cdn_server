@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: no
+  name: Install git
+  tasks:
+    - name: Install git
+      ansible.builtin.apt:
+        name:
+          - git
