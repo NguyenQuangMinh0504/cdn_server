@@ -1,13 +1,13 @@
 provider "google" {
     credentials = file("~/.config/gcloud/application_default_credentials.json")
     project = "cdn-demo-1"
-    region = "us-central1"
+    region = "europe-west2"
 }
 
 resource "google_compute_instance" "default" {
-    name = "test"
+    name = "cache-server-london"
     machine_type = "e2-small"
-    zone = "asia-northest1"
+    zone = "europe-west2-b"
     boot_disk {
       initialize_params {
         image = "debian-cloud/debian-12"
