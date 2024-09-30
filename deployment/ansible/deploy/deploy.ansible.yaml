@@ -2,7 +2,7 @@
 - hosts: all
   become: yes
 - ansible.builtin.import_playbook: ../install/install_git.ansible.yaml
-- ansible.builtin.import_playbook: ../install/install_lsof.ansible.yaml
+- ansible.builtin.import_playbook: ../install/install_openresty.ansible.yaml
 - ansible.builtin.import_playbook: ../install/install_docker.ansible.yaml
 - ansible.builtin.import_playbook: ../synchronize_code.ansible.yaml
 - ansible.builtin.import_playbook: ../runserver.ansible.yaml

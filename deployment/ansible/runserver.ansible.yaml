@@ -3,14 +3,10 @@
   name: Running process
   become: yes
   tasks:
-    - name: Find all process using port 80
-      ansible.builtin.shell: "lsof -t -i:80"
-      register: processes_on_port
-
-    - name: Stop all processes running on port 80
-      ansible.builtin.shell: "kill -9 {{ item }}"
-      with_items: "{{ processes_on_port.stdout_lines }}"
-      ignore_errors: yes
+    - name: Stop Openresty service
+      ansible.builtin.service:
+        name: openresty
+        state: stopped
       
     - name: Run openresty cache server
       ansible.builtin.command:
